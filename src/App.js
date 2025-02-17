@@ -1,28 +1,14 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const text = "Hello";
-  const Mouse = () => {
-    const mouse = document.getElementById("buttonEle");
-    alert(mouse.dataset.desc);
-  };
-  return (
+  let [count,setCount]=useState(0);
+  return(
     <>
-      <button
-        id="buttonEle"
-        style={{ color: "red" }}
-        data-desc="custom"
-        onMouseOver={Mouse}
-      >
-        {text}
-      </button>
-      <CustomFunction desc={"hii"}></CustomFunction>
+    <button onClick={()=>setCount(count+1)}>Increment</button>
+      <h1>{count}</h1>
     </>
-  );
-}
-
-function CustomFunction(props) {
-  return <h1>{props.desc}</h1>;
+  )
 }
 
 export default App;
